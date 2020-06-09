@@ -13,6 +13,12 @@ In this lesson we will improve our js skills for dealing with async code.
 - subject
 - operators
 
+## Video
+
+This lesson is also available in video in the following URL:
+
+https://youtu.be/rLPW1VowY1E
+
 ## Student EX.
 
 To solve the EX. you will have to download the code from the course repo. 
@@ -46,6 +52,16 @@ You job is to identify and fix the memory leak  bug the app has.
 
 ## Student EX - common rxjs operators
 
+try and use the following operators:
+you can run it in node with **ts-node**
+you can run the operators on subjects for ease of use
+
+- catchError
+- map
+- tap
+- mergeMap
+- filter
+- debounceTime
 
 
 
