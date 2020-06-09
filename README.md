@@ -7,6 +7,11 @@ Advanced angular 9 course  given to matrix on June 2020.
 My name is Yariv Katz
 My linked in profile is [here](https://il.linkedin.com/in/yariv-katz "LinkedIn")
 
+## prerequisites
+
+- Typescript
+- Angular 2+
+
 ## Students group
 
 Students can ask me question even after the course by using the QA whatapp group:
