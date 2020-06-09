@@ -119,6 +119,123 @@
           }
         }
       }
+    },
+    "memory-leaks": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/memory-leaks",
+      "sourceRoot": "projects/memory-leaks/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/memory-leaks",
+            "index": "projects/memory-leaks/src/index.html",
+            "main": "projects/memory-leaks/src/main.ts",
+            "polyfills": "projects/memory-leaks/src/polyfills.ts",
+            "tsConfig": "projects/memory-leaks/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/memory-leaks/src/favicon.ico",
+              "projects/memory-leaks/src/assets"
+            ],
+            "styles": [
+              "projects/memory-leaks/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/memory-leaks/src/environments/environment.ts",
+                  "with": "projects/memory-leaks/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "memory-leaks:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "memory-leaks:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "memory-leaks:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/memory-leaks/src/test.ts",
+            "polyfills": "projects/memory-leaks/src/polyfills.ts",
+            "tsConfig": "projects/memory-leaks/tsconfig.spec.json",
+            "karmaConfig": "projects/memory-leaks/karma.conf.js",
+            "assets": [
+              "projects/memory-leaks/src/favicon.ico",
+              "projects/memory-leaks/src/assets"
+            ],
+            "styles": [
+              "projects/memory-leaks/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/memory-leaks/tsconfig.app.json",
+              "projects/memory-leaks/tsconfig.spec.json",
+              "projects/memory-leaks/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/memory-leaks/e2e/protractor.conf.js",
+            "devServerTarget": "memory-leaks:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "memory-leaks:serve:production"
+            }
+          }
+        }
+      }
     }},
   "defaultProject": "autocomplete"
 }

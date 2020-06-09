@@ -35,7 +35,7 @@ If you don't have a mic you can use the chat to ask questions.
 
 ## Course Plan
 
-### Asynchronous programming in Javascript and RXJS
+### 01 - Asynchronous programming in Javascript and RXJS
 
 
 

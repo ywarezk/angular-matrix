@@ -23,6 +23,7 @@ To run the project run:
 > npx ng serve --project autocomplete
 ```
 
+You will work on the autocomplete project
 You job is to modify this project to do the following
 - Inside app.component.ts there is a list of items that should be populated from a server.
 - There is a service called **todo.service.ts** that you can use to grab the list items from the server
@@ -30,3 +31,15 @@ You job is to modify this project to do the following
 - Can you use your rxjs knowledge to implement throttling?
 - can you use rxjs knowledge to make the search distinct?
 - try to avoid bad patterns like to many nesting
+
+## Student EX - spot the memory leak!
+
+In this ex you will work on the **memory-leak** project.
+You job is to identify and fix the memory leak  bug the app has.
+
+## Student EX - common rxjs operators
+
+
+
+
+

@@ -28,3 +28,4 @@ export class AppComponent {
     this._search = value;
   }
 }
+
