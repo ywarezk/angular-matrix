@@ -2,5 +2,123 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "autocomplete": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/autocomplete",
+      "sourceRoot": "projects/autocomplete/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/autocomplete",
+            "index": "projects/autocomplete/src/index.html",
+            "main": "projects/autocomplete/src/main.ts",
+            "polyfills": "projects/autocomplete/src/polyfills.ts",
+            "tsConfig": "projects/autocomplete/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/autocomplete/src/favicon.ico",
+              "projects/autocomplete/src/assets"
+            ],
+            "styles": [
+              "projects/autocomplete/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/autocomplete/src/environments/environment.ts",
+                  "with": "projects/autocomplete/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "autocomplete:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "autocomplete:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "autocomplete:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/autocomplete/src/test.ts",
+            "polyfills": "projects/autocomplete/src/polyfills.ts",
+            "tsConfig": "projects/autocomplete/tsconfig.spec.json",
+            "karmaConfig": "projects/autocomplete/karma.conf.js",
+            "assets": [
+              "projects/autocomplete/src/favicon.ico",
+              "projects/autocomplete/src/assets"
+            ],
+            "styles": [
+              "projects/autocomplete/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/autocomplete/tsconfig.app.json",
+              "projects/autocomplete/tsconfig.spec.json",
+              "projects/autocomplete/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/autocomplete/e2e/protractor.conf.js",
+            "devServerTarget": "autocomplete:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "autocomplete:serve:production"
+            }
+          }
+        }
+      }
+    }},
+  "defaultProject": "autocomplete"
 }
