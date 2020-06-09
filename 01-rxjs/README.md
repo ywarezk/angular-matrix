@@ -4,7 +4,14 @@ In this lesson we will improve our js skills for dealing with async code.
 
 ## Lesson plan
 
-- 
+- what is async code
+- classifying your async code
+- spotting the bad patterns
+- promise example
+- observable example
+- difference between promise and observable
+- subject
+- operators
 
 ## Student EX.
 
