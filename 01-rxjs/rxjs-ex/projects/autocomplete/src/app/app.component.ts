@@ -17,15 +17,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   public items: any[] = [];
-
-  private _search = '';
-
-  get search() {
-    return this._search;
-  }
-
-  set search(value: string) {
-    this._search = value;
-  }
 }
 
