@@ -19,6 +19,15 @@ This lesson is also available in video in the following URL:
 
 https://youtu.be/rLPW1VowY1E
 
+
+## Lesson goal
+
+understand async code and how to deal with properly
+
+
+
+
+
 ## Student EX.
 
 To solve the EX. you will have to download the code from the course repo. 
@@ -44,11 +53,13 @@ You job is to modify this project to do the following
 - Can you use your rxjs knowledge to implement throttling?
 - can you use rxjs knowledge to make the search distinct?
 - try to avoid bad patterns like to many nesting
+- try to use the async pipe
 
 ## Student EX - spot the memory leak!
 
 In this ex you will work on the **memory-leak** project.
 You job is to identify and fix the memory leak  bug the app has.
+try to use the async pipe
 
 ## Student EX - common rxjs operators
 
@@ -62,6 +73,8 @@ you can run the operators on subjects for ease of use
 - mergeMap
 - filter
 - debounceTime
+
+
 
 
 

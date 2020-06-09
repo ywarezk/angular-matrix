@@ -1,0 +1,20 @@
+{
+  "name": "01-rxjs",
+  "version": "1.0.0",
+  "description": "In this lesson we will improve our js skills for dealing with async code.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^14.0.12",
+    "typescript": "^3.9.5"
+  },
+  "dependencies": {
+    "rxjs": "^6.5.5",
+    "ts-node": "^8.10.2"
+  }
+}
