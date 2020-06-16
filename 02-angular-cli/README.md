@@ -10,6 +10,7 @@ In this lesson we will learn advanced features regarding @angular/cli tool
 - about npx
 - create a project
 - create a library
+- paths in tsconfig
 - version control
 
 ### EX.
