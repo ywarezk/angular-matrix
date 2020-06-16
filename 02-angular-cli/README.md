@@ -11,6 +11,7 @@ In this lesson we will learn advanced features regarding @angular/cli tool
 - create a project
 - create a library
 - paths in tsconfig
+- build library and publish
 - version control
 
 ### EX.
@@ -19,4 +20,5 @@ In this lesson we will learn advanced features regarding @angular/cli tool
 - create two projects in the workspace
 - create a single library
 - create a component in the single library that the two project will share
+- try to use npm to publish your package
 
