@@ -42,6 +42,8 @@ If you don't have a mic you can use the chat to ask questions.
 
 ### 01 - Asynchronous programming in Javascript and RXJS
 
+### 02 - @angular/cli
+
 
 
 
