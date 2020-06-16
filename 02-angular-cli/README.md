@@ -14,6 +14,45 @@ In this lesson we will learn advanced features regarding @angular/cli tool
 - build library and publish
 - version control
 
+### What is NPX
+
+node package executer
+npm install -g @angular/cli => ng 
+you can check the version: ng --version
+npm install -g @angular/cli@latest
+
+ng new some-project
+npx @angular/cli new some-project
+npx ng serve => node_module/.bin
+
+### @angular/cli
+
+yay we use @angular/cli to start a new project => beginners/intermediate
+advanced mode => @angular/cli is used to create a workspace
+
+### What is and angular workspace
+
+workspace contains multiple projects or libraries
+
+### lets try to use angular cli to create a workspace
+
+```
+npx @angular/cli new some-workspace --create-application false
+```
+
+### Advantages disadvantages of using workspace
+
+- node_modules => which means one version one angular (you can bypass with npm alias)
+- updating angular will be easier, updating other packages will be easier
+- single utilities like testing, single configuration typescript 
+- share and reuse to your code
+
+disadvantage
+- build and deploy is a bit more complex
+- nrwl , Bazel
+
+
+
 ### EX.
 
 - using @angular/cli create a new workspace
