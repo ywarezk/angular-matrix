@@ -10,7 +10,7 @@ import { AbstractControl, FormControl, FormGroup, FormArray, NgModel, NgForm, Co
       <h1>Login Template driven</h1>
 
       <!-- input[ngModel] -->
-      <input name="email" ngModel />
+      <input name="email" ngModel  />
       <input name="password" ngModel />
       <input name="stamRadio" type="radio" ngModel />
       <button>submit</button>
@@ -24,21 +24,31 @@ import { AbstractControl, FormControl, FormGroup, FormArray, NgModel, NgForm, Co
       <input name="password" formControlName="password" />
     </form>
 
-    <app-phone-number [formControl]="phoneNumber"></app-phone-number>
+    <button (click)="toggleRequired()">
+      toggleRequired
+    </button>
+
+    <app-phone-number [(ngModel)]="hello"></app-phone-number>
+
+    <p>
+      {{phoneNumber.errors | json}}
+    </p>
   `
 })
 export class AppComponent implements OnInit {
   email = 'yariv@nerdeez.com';
   password = '123456';
+  isRequired = true;
 
   loginForm = new FormGroup({
     email: new FormControl(),
     password: new FormControl()
   });
 
+  hello = '123-234234';
+
   phoneNumber = new FormControl('052-12345678', [
-    Validators.required, 
-    Validators.minLength(3)
+    Validators.required
   ]);
 
   login(form: NgForm) {
@@ -51,5 +61,20 @@ export class AppComponent implements OnInit {
     this.phoneNumber.valueChanges.subscribe((value) => {
       console.log(value);
     })
+  }
+
+  toggleRequired() {
+    this.isRequired = !this.isRequired;
+
+    if (this.isRequired) {
+      this.phoneNumber.setValidators(
+        [Validators.required]
+      )
+    } else {
+      this.phoneNumber.setValidators(
+        []
+      )
+    }
+    
   }
 }

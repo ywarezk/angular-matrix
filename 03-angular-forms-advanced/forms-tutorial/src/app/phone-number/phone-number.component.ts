@@ -1,5 +1,5 @@
-import { Component, OnInit, forwardRef, AfterViewInit } from '@angular/core';
-import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Component, OnInit, forwardRef, AfterViewInit, Input, Host, Optional, Self } from '@angular/core';
+import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, ControlContainer } from '@angular/forms';
 import { merge } from 'rxjs';
 
 @Component({
@@ -19,6 +19,9 @@ import { merge } from 'rxjs';
       type="tel" 
       placeholder="number" 
       [formControl]="numberControl" />
+    <button (click)="reset()">
+      Reset
+    </button>
   `,
   styleUrls: ['./phone-number.component.css'],
   providers: [
@@ -33,9 +36,17 @@ export class PhoneNumberComponent implements ControlValueAccessor, AfterViewInit
   prefixControl = new FormControl();
   numberControl = new FormControl();
 
+  
+
   private _changeCb;
   public notifyBlur;
   public isDisabled = false;
+
+  constructor(
+    @Optional() private parent: ControlContainer,
+  ) {
+    // console.log(parent);
+  }
 
   /**
    * when the class change the value in formControl or ngModel
@@ -43,6 +54,11 @@ export class PhoneNumberComponent implements ControlValueAccessor, AfterViewInit
    * @param obj 
    */
   writeValue(phoneNumber: string): void {
+    if (!phoneNumber) {
+      this.prefixControl.setValue("");
+      this.numberControl.setValue("");  
+      return;
+    }
     const [prefix, number] = phoneNumber.split('-');
     this.prefixControl.setValue(prefix);
     this.numberControl.setValue(number);
@@ -77,5 +93,13 @@ export class PhoneNumberComponent implements ControlValueAccessor, AfterViewInit
     ).subscribe(() => {
       this._changeCb(`${this.prefixControl.value}-${this.numberControl.value}`);
     });
+
+    console.log(this.parent);
+  }
+
+  reset() {
+    // this.prefixControl.setValue(null);
+    // this.numberControl.setValue(null);
+    this._changeCb(``);
   }
 }
