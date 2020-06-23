@@ -38,6 +38,8 @@ workspace contains multiple projects or libraries
 
 ```
 npx @angular/cli new some-workspace --create-application false
+npx ng g application tutorial
+npx ng g application another-app
 ```
 
 ### Advantages disadvantages of using workspace
@@ -49,7 +51,7 @@ npx @angular/cli new some-workspace --create-application false
 
 disadvantage
 - build and deploy is a bit more complex
-- nrwl , Bazel
+- nrwl , Bazel - we can use them for complex build and deploy
 
 
 

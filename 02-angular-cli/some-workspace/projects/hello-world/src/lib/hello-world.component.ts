@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
       hello-world works!
       sadfasdf
       new change
+      v0.0.2
+      asdfgasdf
+      v0.0.3
     </p>
   `,
   styles: [
