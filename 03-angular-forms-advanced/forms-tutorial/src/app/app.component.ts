@@ -59,6 +59,15 @@ import {repeatPassword} from 'matrix-forms';
     }}
     </p>
 
+    <h1>
+      Id Validation Directive
+    </h1>
+
+    <input placeholder="id" [formControl]="idControl" matrixId />
+
+    {{
+      idControl.errors | json
+    }}
     
   `
 })
@@ -86,6 +95,8 @@ export class AppComponent implements OnInit {
     password: new FormControl(),
     repeatPassword: new FormControl()
   })
+
+  idControl = new FormControl()
 
   login(form: NgForm) {
     // {email: '...', password: '... '}
