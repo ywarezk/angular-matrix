@@ -65,7 +65,7 @@ providers: [
   ]
 ```
 
-### EX.
+### EX. ControlValueAccessor
 
 - you need to create the first ControlValueAccessor
 - component
@@ -77,4 +77,20 @@ providers: [
 - the li should display only the title
 - you need to attach a [formControl] to you custom form component
 - you need to print the value in the template.
+
+### EX. Validation
+
+- Create a validation directive
+- That validation directive will validate that a string is a correct israeli id number.
+
+### EX.
+
+- Create a dynamic form
+- This is a form for creating a user
+- a user contains first name and a last name string values. 
+- a user also contains address containing city and street. 
+- a user can have multiple addresses.
+- Create a form for creating this user
+- Try to use FormBuilder
+- when submitting the form print the FormGroup values.
 
