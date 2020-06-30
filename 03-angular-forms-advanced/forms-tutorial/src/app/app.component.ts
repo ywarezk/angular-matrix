@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, FormArray, NgModel, NgForm, ControlValueAccessor, Validators } from '@angular/forms';
+import {repeatPassword} from 'matrix-forms';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,7 @@ import { AbstractControl, FormControl, FormGroup, FormArray, NgModel, NgForm, Co
       <h1>Login Template driven</h1>
 
       <!-- input[ngModel] -->
-      <input name="email" ngModel  />
+      <input name="email" ngModel required  />
       <input name="password" ngModel />
       <input name="stamRadio" type="radio" ngModel />
       <button>submit</button>
@@ -20,9 +21,13 @@ import { AbstractControl, FormControl, FormGroup, FormArray, NgModel, NgForm, Co
       <h1>Login Reactive</h1>
 
       <!-- input[formControlName] -->
-      <input name="email" formControlName="email" />
+      <input name="email" formControlName="email" required email minLength="2" />
       <input name="password" formControlName="password" />
     </form>
+
+    <p>
+      {{loginForm.controls.email.errors | json}}
+    </p>
 
     <button (click)="toggleRequired()">
       toggleRequired
@@ -33,6 +38,28 @@ import { AbstractControl, FormControl, FormGroup, FormArray, NgModel, NgForm, Co
     <p>
       {{phoneNumber.errors | json}}
     </p>
+
+    <h1>Autocomplete</h1>
+
+    <p>
+      {{autoComplete.value | json}}
+    </p>
+
+    <matrix-auto-complete [formControl]="autoComplete"></matrix-auto-complete>
+
+    <h1>Custom Validation</h1>
+    <form [formGroup]="passwordForm" [matrixRepeatPassword]="['password', 'repeatPassword']" >
+      <input type="password" placeholder="password" formControlName="password" />
+      <input type="password" placeholder="repeat password" formControlName="repeatPassword" />
+    </form>
+
+    <p>
+    {{
+      passwordForm.errors | json
+    }}
+    </p>
+
+    
   `
 })
 export class AppComponent implements OnInit {
@@ -48,8 +75,17 @@ export class AppComponent implements OnInit {
   hello = '123-234234';
 
   phoneNumber = new FormControl('052-12345678', [
-    Validators.required
+    Validators.required,
+    Validators.minLength(2),
+    Validators.maxLength(5)
   ]);
+
+  autoComplete = new FormControl();
+
+  passwordForm = new FormGroup({
+    password: new FormControl(),
+    repeatPassword: new FormControl()
+  })
 
   login(form: NgForm) {
     // {email: '...', password: '... '}
