@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup, FormArray, NgModel, NgForm, ControlValueAccessor, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, FormArray, NgModel, NgForm, ControlValueAccessor, Validators, FormBuilder } from '@angular/forms';
 import {repeatPassword} from 'matrix-forms';
 
 @Component({
@@ -69,6 +69,24 @@ import {repeatPassword} from 'matrix-forms';
       idControl.errors | json
     }}
     
+
+    <h1>Dynamic forms</h1>
+
+    <h2>Phone numbers</h2>
+
+    <form [formGroup]="phonesForm" (ngSubmit)="sendPhones()">
+      <div formArrayName="phones">
+        <ng-container *ngFor="let control of $any(phonesForm.controls.phones).controls">
+          <app-phone-number [formControl]="control"></app-phone-number>
+        </ng-container>
+      </div>
+      
+      <button (click)="addPhone()" >Add phone number</button>
+    </form>
+
+    {{
+      phonesForm.value | json
+    }}
   `
 })
 export class AppComponent implements OnInit {
@@ -97,6 +115,30 @@ export class AppComponent implements OnInit {
   })
 
   idControl = new FormControl()
+
+  // new FormGroup
+  phonesForm = this._formBuilder.group({
+    // new FormArray([ ])
+    phones: this._formBuilder.array([
+      // new FormControl('052-2441431')
+      '052-2441431'
+    ])
+  });
+
+  addPhone() {
+    (<FormArray>this.phonesForm.controls.phones).push(
+      new FormControl()
+      // this._formBuilder.control()
+    )
+  }
+
+  sendPhones() {
+    console.log(this.phonesForm.value);
+  }
+
+  constructor(private _formBuilder: FormBuilder) {
+
+  }
 
   login(form: NgForm) {
     // {email: '...', password: '... '}
