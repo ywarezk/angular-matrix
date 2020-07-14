@@ -5,8 +5,10 @@ import { AppComponent } from './app.component';
 import { HelloService } from './hello.service';
 import { Child1Component } from './child1/child1.component';
 import { Child2Component } from './child2/child2.component';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 // import {StamModule} from '../stam/stam.module';
+import {HelloInterceptor} from './hello.interceptor';
+import {HELLO_CONFIG} from './hello.service';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,21 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
     // StamModule
   ],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      multi: true,
+      useClass: HelloInterceptor
+    },
+
+    {
+      provide: HTTP_INTERCEPTORS,
+      multi: true,
+      useClass: HelloInterceptor
+    },
+    {
+      provide: HELLO_CONFIG,
+      useValue: 'howdy'
+    }
     // HttpClient,
     // HelloService
     // {

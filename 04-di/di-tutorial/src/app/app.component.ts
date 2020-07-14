@@ -1,4 +1,4 @@
-import { Component, Injector, Inject, ComponentFactoryResolver, ViewChild, ViewContainerRef, Compiler, ApplicationRef, PlatformRef } from '@angular/core';
+import { Component, Injector, Inject, ComponentFactoryResolver, ViewChild, ViewContainerRef, Compiler, ApplicationRef, PlatformRef, OnInit } from '@angular/core';
 // import {HelloService} from './hello.service';
 import { HttpClient } from '@angular/common/http';
 // import { PrintHelloComponent} from '../../stam/print-hello/print-hello.component';
@@ -21,7 +21,7 @@ import { HttpClient } from '@angular/common/http';
   //   // }
   // ]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   @ViewChild('wrapper', {read: ViewContainerRef})
   wrapper: ViewContainerRef
 
@@ -44,6 +44,10 @@ export class AppComponent {
     private _compiler: Compiler,
     private _componentFactoryResolver: ComponentFactoryResolver) {
 
+  }
+
+  ngOnInit() {
+    this._http.get('https://nztodo.herokuapp.com/api/task/?format=json').subscribe();
   }
 
   /**

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PrintHelloComponent } from './print-hello/print-hello.component';
+import { HttpClientModule } from '@angular/common/http';
 // import { PigletService } from './piglet.service';
 
 
@@ -9,6 +10,7 @@ import { PrintHelloComponent } from './print-hello/print-hello.component';
   declarations: [PrintHelloComponent],
   imports: [
     CommonModule,
+    // HttpClientModule
     // FormsModule
   ],
   providers: [
