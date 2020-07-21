@@ -3,23 +3,22 @@
  * it displays animation on the screen
  */
 
-import { Component } from '@angular/core';
-import { AnimationOptions } from 'ngx-lottie';
+import { Component, OnInit, ElementRef } from '@angular/core';
+import player from 'lottie-web';
 
 @Component({
   selector: 'lotti-animation',
   template: `
-    <ng-lottie
-      width="600px"
-      height="500px"
-      containerClass="moving-box another-class"
-      [options]="options"
-    ></ng-lottie>
   `
 })
 
-export class AnimationComponent {
-  options: AnimationOptions = {
-    path: '/assets/data.json',
-  };
+export class AnimationComponent implements OnInit {
+  constructor(private _element: ElementRef){}
+
+  ngOnInit() {
+    player.loadAnimation({
+      path: '/assets/data.json',
+      container: this._element.nativeElement
+    })
+  }
 }
