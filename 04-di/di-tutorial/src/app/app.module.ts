@@ -23,16 +23,22 @@ import {HELLO_CONFIG} from './hello.service';
   ],
   providers: [
     {
-      provide: HTTP_INTERCEPTORS,
-      multi: true,
-      useClass: HelloInterceptor
+      provide: HELLO_CONFIG,
+      useValue: {
+        message: 'hello piglet'
+      }
     },
-
     {
       provide: HTTP_INTERCEPTORS,
       multi: true,
       useClass: HelloInterceptor
     },
+
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   multi: true,
+    //   useClass: HelloInterceptor
+    // },
     {
       provide: HELLO_CONFIG,
       useValue: 'howdy'

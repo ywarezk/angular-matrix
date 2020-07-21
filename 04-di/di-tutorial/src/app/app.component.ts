@@ -14,12 +14,12 @@ import { HttpClient } from '@angular/common/http';
 
   `,
   styleUrls: ['./app.component.css'],
-  // providers: [
-  //   // {
-  //   //   provide: 'hello',
-  //   //   useValue: 'hello AppComponent'
-  //   // }
-  // ]
+  providers: [
+    {
+      provide: 'hello',
+      useValue: 'hello AppComponent'
+    }
+  ]
 })
 export class AppComponent implements OnInit {
   @ViewChild('wrapper', {read: ViewContainerRef})
