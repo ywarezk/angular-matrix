@@ -36,7 +36,7 @@ import {HELLO_CONFIG} from './hello.service';
     {
       provide: HELLO_CONFIG,
       useValue: 'howdy'
-    }
+    },
     // HttpClient,
     // HelloService
     // {
@@ -45,10 +45,10 @@ import {HELLO_CONFIG} from './hello.service';
     //     hello: 'world'
     //   }
     // },
-    // {
-    //   provide: 'hello',
-    //   useValue: 'hello AppModule'
-    // },
+     {
+       provide: 'hello2',
+       useValue: 'hello AppModule'
+     },
     // {
     //   provide: HelloService,
     //   useClass: HelloService

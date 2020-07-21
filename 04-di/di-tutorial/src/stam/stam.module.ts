@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PrintHelloComponent } from './print-hello/print-hello.component';
 import { HttpClientModule } from '@angular/common/http';
-// import { PigletService } from './piglet.service';
+import { PigletService } from './piglet.service';
 
 
 
@@ -14,7 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
     // FormsModule
   ],
   providers: [
-    // PigletService,
+    PigletService,
     {
       provide: 'hello2',
       useValue: 'hello StamModule'

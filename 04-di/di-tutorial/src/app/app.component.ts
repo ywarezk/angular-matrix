@@ -36,13 +36,12 @@ export class AppComponent implements OnInit {
   // }
 
   constructor(
-    // @Inject('hello') public message2, 
-    private _http: HttpClient, 
-    private _platformRef: PlatformRef,
+    // @Inject('hello') public message2,
+    private _http: HttpClient,
     private _injector: Injector,
-    private _applicationRef: ApplicationRef,
     private _compiler: Compiler,
-    private _componentFactoryResolver: ComponentFactoryResolver) {
+    //private _componentFactoryResolver: ComponentFactoryResolver
+    ) {
 
   }
 
@@ -52,19 +51,18 @@ export class AppComponent implements OnInit {
 
   /**
    * We want to lazy load stam module
-   * in order to add an injector 
+   * in order to add an injector
    * to the tree of module injectors
    */
   async loadStamModule() {
-    const {PrintHelloComponent} = await import('../stam/print-hello/print-hello.component');
     // const componentFactory = this._componentFactoryResolver.resolveComponentFactory(PrintHelloComponent);
     // this.wrapper.createComponent(componentFactory);
 
     const {StamModule} = await import('../stam/stam.module');
     const moduleFactory = await this._compiler.compileModuleAsync(StamModule);
     const moduleRef = moduleFactory.create(this._injector);
-    moduleRef.componentFactoryResolver.resolveComponentFactory(PrintHelloComponent);
-    const componentFactory = this._componentFactoryResolver.resolveComponentFactory(PrintHelloComponent);
+    const { PrintHelloComponent } = await import('../stam/print-hello/print-hello.component');
+    const componentFactory = moduleRef.componentFactoryResolver.resolveComponentFactory(PrintHelloComponent);
     this.wrapper.createComponent(componentFactory);
   }
 }
