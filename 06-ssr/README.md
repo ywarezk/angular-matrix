@@ -3,6 +3,18 @@
 In this lesson we will learn to run angular on node to produce html.
 This will make a faster initial load and SEO results.
 
+## Platform
+
+who is going to run the js files
+platform is browser?
+is it always the browser or can i have another platform that can run our js files? 
+
+## Isomorphic / Universal code
+
+js code that can run on the browser and on node
+
+
+
 ## Lesson Plan
 
 - Platform
