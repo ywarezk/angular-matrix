@@ -5,7 +5,17 @@ This will make a faster initial load and SEO results.
 
 ## Lesson Plan
 
-- What is Server Side Rendering
 - Platform
-- What is Isomorphic code
-- 
+- Isomorphic code
+- The problem with SPA
+- What is Server Side Rendering
+- adding: @nguniversal/express-engine
+- dev server
+- building
+
+## EX.
+
+In the folder `ssr-ex` we have an app with a component that displays animation.
+The component can only be run on the browser.
+Try to add server side rendering to the app.
+You need to conditionally load the component only on the browser and not on the server side
