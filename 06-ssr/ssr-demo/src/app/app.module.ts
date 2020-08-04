@@ -8,7 +8,6 @@ import { AboutPageComponent } from './pages/about/about.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TransferHttpCacheModule } from '@nguniversal/common';
 
-
 @NgModule({
   declarations: [
     AppComponent,
